@@ -1,0 +1,7 @@
+C:\Users\vincz\source\repos\mzProg2021\mzProg2021\bin\Debug\mzProg2021.exe.config
+C:\Users\vincz\source\repos\mzProg2021\mzProg2021\bin\Debug\mzProg2021.exe
+C:\Users\vincz\source\repos\mzProg2021\mzProg2021\bin\Debug\mzProg2021.pdb
+C:\Users\vincz\source\repos\mzProg2021\mzProg2021\obj\Debug\mzProg2021.csprojAssemblyReference.cache
+C:\Users\vincz\source\repos\mzProg2021\mzProg2021\obj\Debug\mzProg2021.csproj.CoreCompileInputs.cache
+C:\Users\vincz\source\repos\mzProg2021\mzProg2021\obj\Debug\mzProg2021.exe
+C:\Users\vincz\source\repos\mzProg2021\mzProg2021\obj\Debug\mzProg2021.pdb
