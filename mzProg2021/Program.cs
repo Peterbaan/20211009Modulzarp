@@ -15,7 +15,7 @@ namespace mzProg2021
             List<Balkezes> balkezesek = new List<Balkezes>();
             foreach (string sor in sorok.Skip(1))
             {
-                balkezesek.Add(new Balkezes());
+                balkezesek.Add(new Balkezes(sor));
             }
 
             //1. Feladat
@@ -26,13 +26,12 @@ namespace mzProg2021
             int Db1980Felett = 0;
             foreach (Balkezes balkezes in balkezesek)
             {
-                if (balkezes.elso == 1980)
+                if (19800101 <= balkezes.elso && balkezes.elso <= 19801231)
                 {
                     Db1980Felett++;
                 }
             }
             Console.WriteLine($"2. Feladat: {Db1980Felett} veresenyző lépett 1980-ban pályára először");
-
 
             //3. Feladat
             double inch = 2.54;
@@ -56,20 +55,20 @@ namespace mzProg2021
 
             //4.Feladat
             Console.WriteLine("Adjon meg egy évszámot 1900 és 1999 között!");
-            int Bekeres = int.Parse(Console.ReadLine());
-            if (1900 <= Bekeres && Bekeres <= 1999)
+            double Bekeres = double.Parse(Console.ReadLine() + 0101);
+            if (19000101 <= Bekeres && Bekeres <= 19991231)
             {
                 Console.WriteLine("Helyes adat");
-                Bekeres.ToString();
                 List<Balkezes> bekertBalkezes = new List<Balkezes>();
                 foreach (Balkezes balkezes in balkezesek)
                 {
                     if (balkezes.elso == Bekeres)
                     {
-                        bekertBalkezes.Add(new Balkezes());
-                        Console.WriteLine(bekertBalkezes);
+                        bekertBalkezes.Add(balkezes);
+
                     }
                 }
+                bekertBalkezes.ForEach(Console.WriteLine);
             }
             else
             {
@@ -91,7 +90,7 @@ namespace mzProg2021
 
             //6.Feladat
             int j = 0;
-            while (j < N && balkezesek[j].utolso <= 2000) { j++; }
+            while (j < N && balkezesek[j].utolso <= 20000101) { j++; }
             bool van = j >= N;
             if (van == true)
             {
@@ -103,24 +102,18 @@ namespace mzProg2021
             }
 
             //7. Feladat
-            Dictionary<string, int> johnDb = new Dictionary<string, int>();
-            foreach (string sor in sorok.Skip(1))
+            List<string> vanEJohn = new List<string>();
+            foreach (Balkezes balkezes in balkezesek)
             {
-                string kulcs = "John";
-                if (johnDb.ContainsKey(kulcs))
+                if (balkezes.nev.Contains("John"))
                 {
-                    johnDb[kulcs]++;
-                }
-                else
-                {
-                    johnDb.Add(kulcs, 1);
-                }
-
-                foreach (KeyValuePair<string, int> item in johnDb)
-                {
-                    Console.WriteLine($"{item.Key} névből {item.Value} darab van");
+                    vanEJohn.Add($"{balkezes.nev}\n"); 
                 }
             }
+            int johnDb = vanEJohn.Count;
+            Console.WriteLine($"7. Feladat: John-ból van {johnDb}, ezek a következők:");
+            vanEJohn.ForEach(Console.WriteLine);
+
             //8. Feladat
             string fn = "kernevek.txt";
             List<string> kernev = new List<string>();
@@ -133,10 +126,7 @@ namespace mzProg2021
             }
             File.WriteAllLines(fn, kernev.ToArray());
 
-
             Console.ReadLine();
-            
-
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace mzProg2021
@@ -22,12 +23,6 @@ namespace mzProg2021
             utolso = double.Parse(s[2]);
             suly = double.Parse(s[3]);
             magassag = double.Parse(s[4]);
-
-        }
-        public Balkezes()
-        {
-          
         }
     }
-
 }
